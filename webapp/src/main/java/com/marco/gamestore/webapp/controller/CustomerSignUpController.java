@@ -1,9 +1,7 @@
 package com.marco.gamestore.webapp.controller;
 
 import com.marco.gamestore.customer.application.signup.CustomerSignUpper;
-import com.marco.gamestore.customer.domain.Customer;
-import com.marco.gamestore.customer.domain.CustomerId;
-import com.marco.gamestore.customer.domain.CustomerLogin;
+import com.marco.gamestore.customer.domain.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +18,7 @@ public class CustomerSignUpController {
     @PostMapping("/")
     public void signUp(@RequestParam String email, HttpServletRequest httpRequest){
         CustomerId id = new CustomerId(UUID.randomUUID().toString());
-        CustomerLogin login = new CustomerLogin(email, "1234");
+        CustomerLogin login = new CustomerLogin(new CustomerLoginEmail(email), new CustomerLoginPassword("12345"));
         Customer customer = new Customer(id, "nombre", "apellido", login);
         customerSignUpper.signUpCustomer(customer);
     }

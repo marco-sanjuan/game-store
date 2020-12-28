@@ -6,10 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
-
 @Slf4j
-@Transactional
 @Component
 @RequiredArgsConstructor
 public class CustomerRepositoryJpa implements CustomerRepository {
@@ -19,11 +16,11 @@ public class CustomerRepositoryJpa implements CustomerRepository {
     @Override
     public Customer store(Customer customer) {
         CustomerEntity dto = new CustomerEntity();
-        dto.setId(customer.getId().getValue());
+        dto.setId(customer.getId());
         dto.setName(customer.getName());
         dto.setLastName(customer.getLastName());
-        dto.setEmail(customer.getLogin().getEmail());
-        dto.setPassword(customer.getLogin().getPassword());
+        dto.setEmail(customer.getLoginEmail());
+        dto.setPassword(customer.getLoginPassword());
 
         CustomerEntity saved = customerDAO.save(dto);
 

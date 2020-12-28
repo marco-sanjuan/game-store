@@ -17,6 +17,7 @@
 
     <modules>
         <module>webapp</module>
+        <module>shared</module>
         <module>customer</module>
     </modules>
     <properties>

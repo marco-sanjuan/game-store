@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public class CustomerLogin {
 
-    private final String email;
+    private final CustomerLoginEmail email;
 
-    private final String password;
+    private final CustomerLoginPassword password;
 }
