@@ -14,7 +14,7 @@ public class CustomerRepositoryJpa implements CustomerRepository {
     private final CustomerDAO customerDAO;
 
     @Override
-    public Customer store(Customer customer) {
+    public Customer save(Customer customer) {
         CustomerEntity dto = new CustomerEntity();
         dto.setId(customer.getId());
         dto.setName(customer.getName());

@@ -11,6 +11,6 @@ public class CustomerSignUpper {
 
     public Customer signUpCustomer(Customer customer){
 
-        return customerRepository.store(customer);
+        return customerRepository.save(customer);
     }
 }
