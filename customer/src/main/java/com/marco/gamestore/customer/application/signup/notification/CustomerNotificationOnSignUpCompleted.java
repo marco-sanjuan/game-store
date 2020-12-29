@@ -16,7 +16,7 @@ public class CustomerNotificationOnSignUpCompleted {
     @EventListener
     public void on(CustomerSignUpCompletedEvent event) {
 
-        log.info("Event consumed {}", event);
+        log.info("Event received: {}", event);
 
         customerSignUpNotifier.sendNotification();
     }
