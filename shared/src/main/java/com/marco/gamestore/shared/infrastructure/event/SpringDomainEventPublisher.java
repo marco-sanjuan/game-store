@@ -17,8 +17,9 @@ public class SpringDomainEventPublisher implements DomainEventPublisher {
     @Override
     public void publish(final DomainEvent domainEvent) {
 
+        log.info("Event published {}", domainEvent);
+
         this.publisher.publishEvent(domainEvent);
 
-        log.info("Event published {}", domainEvent);
     }
 }

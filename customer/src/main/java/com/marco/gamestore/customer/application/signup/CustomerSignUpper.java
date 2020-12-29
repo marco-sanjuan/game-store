@@ -17,7 +17,10 @@ public class CustomerSignUpper {
 
         final Customer savedCustomer = customerRepository.save(customer);
 
-        domainEventPublisher.publish(new CustomerSignUpCompleted(savedCustomer));
+        domainEventPublisher.publish(new CustomerSignUpCompletedEvent(savedCustomer.getId(),
+                savedCustomer.getName(),
+                savedCustomer.getLastName(),
+                savedCustomer.getLoginEmail()));
 
         return savedCustomer;
     }

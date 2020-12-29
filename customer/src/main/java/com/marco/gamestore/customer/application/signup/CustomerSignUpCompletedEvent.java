@@ -1,6 +1,5 @@
 package com.marco.gamestore.customer.application.signup;
 
-import com.marco.gamestore.customer.domain.Customer;
 import com.marco.gamestore.shared.domain.event.DomainEvent;
 import lombok.ToString;
 
@@ -8,7 +7,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 @ToString(callSuper = true)
-public class CustomerSignUpCompleted extends DomainEvent {
+public class CustomerSignUpCompletedEvent extends DomainEvent {
 
     private final String eventName = "customer.signup.completed";
 
@@ -18,11 +17,12 @@ public class CustomerSignUpCompleted extends DomainEvent {
 
     private final String loginEmail;
 
-    public CustomerSignUpCompleted(Customer customer) {
-        super(customer.getId());
-        this.name = customer.getName();
-        this.lastName = customer.getLastName();
-        this.loginEmail = customer.getLoginEmail();
+    //TODO this constructor is evil, try another way to create event (Customer class not visible here)
+    public CustomerSignUpCompletedEvent(String customerId, String name, String lastName, String loginEmail) {
+        super(customerId);
+        this.name = name;
+        this.lastName = lastName;
+        this.loginEmail = loginEmail;
     }
 
     @Override
