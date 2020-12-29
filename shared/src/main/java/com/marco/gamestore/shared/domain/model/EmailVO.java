@@ -1,4 +1,4 @@
-package com.marco.gamestore.shared.domain;
+package com.marco.gamestore.shared.domain.model;
 
 import lombok.Getter;
 
@@ -11,7 +11,7 @@ public class EmailVO {
         if(value == null){
             throw new IllegalArgumentException("Email cannot be null");
         }
-        if(value.contains("@")){
+        if(!value.contains("@")){
             throw new IllegalArgumentException("Email should be valid");
         }
         this.value = value;

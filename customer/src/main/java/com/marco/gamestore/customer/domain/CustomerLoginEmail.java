@@ -1,6 +1,6 @@
 package com.marco.gamestore.customer.domain;
 
-import com.marco.gamestore.shared.domain.EmailVO;
+import com.marco.gamestore.shared.domain.model.EmailVO;
 import lombok.Getter;
 
 @Getter
