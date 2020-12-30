@@ -1,2 +1,4 @@
 # game-store
-DDD and Hexagonal Architecture sample project
+
+A DDD and Hexagonal Architecture example project with CQRS approach.
+

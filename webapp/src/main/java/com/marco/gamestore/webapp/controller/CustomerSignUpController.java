@@ -1,26 +1,30 @@
 package com.marco.gamestore.webapp.controller;
 
-import com.marco.gamestore.customer.application.signup.CustomerSignUpper;
-import com.marco.gamestore.customer.domain.*;
+import com.marco.gamestore.customer.application.signup.CustomerSignUpCommand;
+import com.marco.gamestore.shared.domain.bus.CommandBus;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.UUID;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/customer")
 @RequiredArgsConstructor
 public class CustomerSignUpController {
 
-    private final CustomerSignUpper customerSignUpper;
+    private final CommandBus commandBus;
 
     @PostMapping("/")
-    public void signUp(@RequestParam String email, HttpServletRequest httpRequest){
-        CustomerId id = new CustomerId(UUID.randomUUID().toString());
-        CustomerLogin login = new CustomerLogin(new CustomerLoginEmail(email), new CustomerLoginPassword("12345"));
-        Customer customer = new Customer(id, "nombre", "apellido", login);
-        customerSignUpper.signUpCustomer(customer);
+    public void signUp(
+            @ApiParam(defaultValue = "Pedro") @RequestParam String name,
+            @ApiParam(defaultValue = "Gadicto") @RequestParam String lastName,
+            @ApiParam(defaultValue = "prueba@test") @RequestParam String loginEmail,
+            @ApiParam(defaultValue = "12345") @RequestParam String loginPassword){
+
+        CustomerSignUpCommand command = new CustomerSignUpCommand(name, lastName, loginEmail, loginPassword);
+        commandBus.handle(command);
     }
 
 }
