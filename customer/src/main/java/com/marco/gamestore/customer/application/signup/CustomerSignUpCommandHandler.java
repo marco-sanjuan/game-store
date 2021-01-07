@@ -1,7 +1,7 @@
 package com.marco.gamestore.customer.application.signup;
 
 import com.marco.gamestore.customer.domain.*;
-import com.marco.gamestore.shared.domain.bus.CommandHandler;
+import com.marco.gamestore.shared.domain.bus.command.CommandHandler;
 import com.marco.gamestore.shared.domain.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 

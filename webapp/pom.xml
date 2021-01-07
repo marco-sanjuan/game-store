@@ -19,6 +19,11 @@
             <artifactId>customer</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.marco</groupId>
+            <artifactId>game</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

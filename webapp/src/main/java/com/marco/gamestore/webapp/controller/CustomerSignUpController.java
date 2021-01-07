@@ -1,7 +1,7 @@
 package com.marco.gamestore.webapp.controller;
 
 import com.marco.gamestore.customer.application.signup.CustomerSignUpCommand;
-import com.marco.gamestore.shared.domain.bus.CommandBus;
+import com.marco.gamestore.shared.domain.bus.command.CommandBus;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

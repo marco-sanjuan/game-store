@@ -17,6 +17,7 @@
 
     <modules>
         <module>customer</module>
+        <module>game</module>
         <module>shared</module>
         <module>webapp</module>
     </modules>

@@ -1,8 +1,8 @@
 package com.marco.gamestore.shared.infrastructure.bus;
 
-import com.marco.gamestore.shared.domain.bus.Command;
-import com.marco.gamestore.shared.domain.bus.CommandBus;
-import com.marco.gamestore.shared.domain.bus.CommandHandler;
+import com.marco.gamestore.shared.domain.bus.command.Command;
+import com.marco.gamestore.shared.domain.bus.command.CommandBus;
+import com.marco.gamestore.shared.domain.bus.command.CommandHandler;
 import com.marco.gamestore.shared.domain.stereotype.Service;
 
 import java.lang.reflect.ParameterizedType;
