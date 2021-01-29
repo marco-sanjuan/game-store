@@ -9,10 +9,10 @@ public class Customer {
     private final CustomerId id;
 
     @Getter
-    private final String name;
+    private final CustomerName name;
 
     @Getter
-    private final String lastName;
+    private final CustomerLastName lastName;
 
     private final CustomerLogin login;
 

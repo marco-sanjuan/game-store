@@ -5,8 +5,6 @@ import com.marco.gamestore.shared.domain.bus.command.CommandHandler;
 import com.marco.gamestore.shared.domain.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
-import java.util.UUID;
-
 @Service
 @RequiredArgsConstructor
 public class CustomerSignUpCommandHandler implements CommandHandler<CustomerSignUpCommand> {
@@ -16,12 +14,10 @@ public class CustomerSignUpCommandHandler implements CommandHandler<CustomerSign
     @Override
     public void handle(CustomerSignUpCommand command) {
 
-        //TODO implement UUID generation strategy
-        CustomerId id = new CustomerId(UUID.randomUUID().toString());
+        CustomerName name = new CustomerName(command.getName());
+        CustomerLastName lastName = new CustomerLastName(command.getLastName());
         CustomerLogin login = new CustomerLogin(new CustomerLoginEmail(command.getLoginEmail()), new CustomerLoginPassword(command.getLoginPassword()));
-        Customer customer = new Customer(id, command.getName(), command.getLastName(), login);
 
-        //TODO should I pass VOs to AS instead of aggregate?
-        customerSignUpper.signUpCustomer(customer);
+        customerSignUpper.signUpCustomer(name, lastName, login);
     }
 }
