@@ -18,7 +18,7 @@ public class GameRepositoryJpa implements GameRepository {
     @Override
     public Game findById(GameId gameId) {
 
-        return gameDAO.findById(gameId.getValue())
+        return gameDAO.findById(gameId.getValueAsString())
                 .map( e -> new Game(new GameId(e.getId()), e.getName(), GamePlatform.valueOf(e.getPlatform())))
                 .orElseThrow(() -> new RuntimeException("Game not found"));
     }

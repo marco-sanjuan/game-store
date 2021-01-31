@@ -1,11 +1,11 @@
 package com.marco.gamestore.customer.domain;
 
-import lombok.Getter;
+import lombok.Value;
 
-@Getter
+@Value
 public class CustomerLoginPassword {
 
-    private final String value;
+    String value;
 
     public CustomerLoginPassword(String value) {
         if(value == null){

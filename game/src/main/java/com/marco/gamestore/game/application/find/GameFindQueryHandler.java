@@ -18,7 +18,7 @@ public class GameFindQueryHandler implements QueryHandler<GameFindQuery, GameFin
         Game game = gameFinder.findById(new GameId(query.getId()));
 
         //TODO map correctly
-        return new GameFindResponse(game.getId().getValue(),
+        return new GameFindResponse(game.getId().getValueAsString(),
                 game.getName(),
                 game.getPlatform().name());
     }

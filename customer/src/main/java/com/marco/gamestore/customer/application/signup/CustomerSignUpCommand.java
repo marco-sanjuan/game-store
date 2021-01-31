@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public class CustomerSignUpCommand implements Command {
 
+    private final String id;
+
     private final String name;
 
     private final String lastName;

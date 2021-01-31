@@ -14,10 +14,11 @@ public class CustomerSignUpCommandHandler implements CommandHandler<CustomerSign
     @Override
     public void handle(CustomerSignUpCommand command) {
 
+        CustomerId id = new CustomerId(command.getId());
         CustomerName name = new CustomerName(command.getName());
         CustomerLastName lastName = new CustomerLastName(command.getLastName());
         CustomerLogin login = new CustomerLogin(new CustomerLoginEmail(command.getLoginEmail()), new CustomerLoginPassword(command.getLoginPassword()));
 
-        customerSignUpper.signUpCustomer(name, lastName, login);
+        customerSignUpper.signUpCustomer(id, name, lastName, login);
     }
 }

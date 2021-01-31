@@ -1,11 +1,9 @@
 package com.marco.gamestore.customer.domain;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
-@RequiredArgsConstructor
-@Getter
+@Value
 public class CustomerLastName {
 
-    private final String value;
+    String value;
 }

@@ -1,12 +1,12 @@
 package com.marco.gamestore.game.domain;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import com.marco.gamestore.shared.domain.model.UuidVO;
+import lombok.Value;
 
-@RequiredArgsConstructor
-@Getter
-public class GameId {
+@Value
+public class GameId extends UuidVO {
 
-    private final String value;
-
+    public GameId(String uuidString) {
+        super(uuidString);
+    }
 }

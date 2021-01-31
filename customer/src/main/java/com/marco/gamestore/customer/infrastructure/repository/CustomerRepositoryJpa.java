@@ -14,20 +14,16 @@ public class CustomerRepositoryJpa implements CustomerRepository {
     private final CustomerDAO customerDAO;
 
     @Override
-    public Customer save(Customer customer) {
+    public void save(Customer customer) {
         CustomerEntity dto = new CustomerEntity();
-        dto.setId(customer.getId());
-        dto.setName(customer.getName());
-        dto.setLastName(customer.getLastName());
-        dto.setEmail(customer.getLoginEmail());
-        dto.setPassword(customer.getLoginPassword());
+        dto.setId(customer.getId().getValueAsString());
+        dto.setName(customer.getName().getValue());
+        dto.setLastName(customer.getLastName().getValue());
+        dto.setEmail(customer.getLogin().getEmail().getValue());
+        dto.setPassword(customer.getLogin().getPassword().getValue());
 
-        CustomerEntity saved = customerDAO.save(dto);
+        customerDAO.save(dto);
 
         log.info("Customer saved");
-
-        //TODO here, map from saved to new customer
-
-        return customer;
     }
 }
